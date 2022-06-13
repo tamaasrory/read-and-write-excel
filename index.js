@@ -4,9 +4,10 @@ const ExportExcel = async () => {
     let month = [
         "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
     ];
+    
+    month = month.reverse();
 
     const workbook = new Excel.Workbook();
-    await workbook.xlsx.readFile('template.xlsx');
 
     let plants = ['R1', 'R2', 'R3', 'R4'];
 
@@ -61,7 +62,7 @@ const ExportExcel = async () => {
             newSheet.getCell(5, E).value = 'Budget';
             newSheet.getCell(5, F).value = 'Variance';
             newSheet.getCell(5, G).value = 'Normalize';
-            
+
             newSheet.mergeCells(4, D, 4, G);
 
             newSheet.getCell(4, D).fill = {
